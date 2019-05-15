@@ -1,0 +1,33 @@
+{
+  "name": "util",
+  "version": "1.0.0",
+  "description": "Commonly used util",
+  "main": "src/index.tsx",
+  "repository": "git@github.com:jaceyi/util.git",
+  "author": "jaceyi <yijinchun@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode=development",
+    "build": "webpack --mode=production --progress"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
+    "css-loader": "^2.1.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
