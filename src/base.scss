@@ -1,31 +1,46 @@
 @font-face {
-    font-family: 'iconfont';
-    /* project id 1196271 */
-    src: url('//at.alicdn.com/t/font_1196271_0lubeoah7pzr.eot');
-    src: url('//at.alicdn.com/t/font_1196271_0lubeoah7pzr.eot?#iefix') format('embedded-opentype'),
-        url('//at.alicdn.com/t/font_1196271_0lubeoah7pzr.woff2') format('woff2'),
-        url('//at.alicdn.com/t/font_1196271_0lubeoah7pzr.woff') format('woff'),
-        url('//at.alicdn.com/t/font_1196271_0lubeoah7pzr.ttf') format('truetype'),
-        url('//at.alicdn.com/t/font_1196271_0lubeoah7pzr.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 1196271 */
+  src: url('//at.alicdn.com/t/font_1196271_m525r0kj8g.eot');
+  src: url('//at.alicdn.com/t/font_1196271_m525r0kj8g.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1196271_m525r0kj8g.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1196271_m525r0kj8g.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1196271_m525r0kj8g.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1196271_m525r0kj8g.svg#iconfont') format('svg');
 }
 
 .icon {
-    font-family: "iconfont";
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+$baseColor: dodgerblue;
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
+input {
+  outline: none;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f1f1f1 url("https://images.unsplash.com/photo-1554185256-7b994c659b88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h1080&q=80") no-repeat fixed;
+  background-size: cover;
+}
 
 #root {
-    background: #fff url("https://api.ooopn.com/image/bing/api.php?v=2&type=jump") no-repeat fixed;
-    background-size: cover;
-    min-height: 100vh;
+  background-color: rgba($color: #Fff, $alpha: 0.6);
+  min-height: 100vh;
+}
+
+.copy_icon {
+  color: #999;
+  margin-left: 10px;
+  cursor: pointer;
 }

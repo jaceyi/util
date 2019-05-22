@@ -27,7 +27,9 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "dayjs": "^1.8.14",
     "react": "^16.8.6",
+    "react-alert-confirm": "^1.2.5",
     "react-dom": "^16.8.6"
   }
 }
