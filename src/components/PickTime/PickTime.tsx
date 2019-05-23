@@ -22,14 +22,14 @@ function PickTime() {
 		setInterval(() => {
 			setTitle(day())
     }, 1000);
-    
+
 		document.addEventListener('paste', bindPaste);
 		return () => document.removeEventListener('paste', bindPaste);
 	}, []);
 
 	function bindPaste(e) {
-		const paste = e.clipboardData.getData('text');
-		if (paste && day.unix(+paste).get('y')) {
+    const paste = e.clipboardData.getData('text');
+		if (+paste && day.unix(+paste).get('y')) {
 			setUnix(+paste)
 		};
 	}
@@ -62,7 +62,13 @@ function PickTime() {
 					<div className="input_box">
 						<input
               value={time.format('YYYY-MM-DDTHH:mm')}
-              onChange={({ target }) => setTime(day(target.value, 'YYYY-MM-DDTHH:mm'))}
+              onChange={({ target }) => {
+                if (target.value) {
+                  setTime(day(target.value, 'YYYY-MM-DDTHH:mm'));
+                } else {
+                  setTime(day())
+                }
+              }}
 							className="input"
 							type="datetime-local"/>
 					</div>

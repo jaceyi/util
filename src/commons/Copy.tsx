@@ -3,7 +3,6 @@ import { Fragment, useRef } from 'react';
 
 interface Props {
   children: React.ReactNode;
-
 }
 
 const Copy: React.FC<Props> = ({ children }) => {
