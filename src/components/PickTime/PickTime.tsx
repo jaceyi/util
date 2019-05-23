@@ -15,7 +15,8 @@ function PickTime() {
 	const [unix, setUnix] = useState(day().unix());
   const [time, setTime] = useState(day());
 
-	const unixTransform = unixTransforms[String(unix).length];
+	const unixLength = String(unix).length;
+	const unixTransform = unixTransforms[unixLength];
 
 	useEffect(() => {
 		clearInterval(timer);
@@ -53,7 +54,7 @@ function PickTime() {
 					</div>
 					<div className="time">
 						<Copy>
-							<span>{unixTransform ? day.unix(unix).format(unixTransform) : '-'}</span>
+							<span>{unixTransform ? day.unix(unixLength === 13 ? unix / 1000 : unix).format(unixTransform) : '-'}</span>
 						</Copy>
 					</div>
 				</div>

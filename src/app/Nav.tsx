@@ -25,7 +25,6 @@ const Nav: React.FC<Props> = ({ list, activeName }) => {
 					return (
 						<div key={item.name} className={`item ${isActive ? 'active' : ''}`}>
 							<i className="icon" dangerouslySetInnerHTML={{ __html: isActive ? item.activeIcon : item.icon }}/>
-							{/*<div className="name">{item.name}</div>*/}
 						</div>
 					)
 				})
