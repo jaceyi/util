@@ -5,7 +5,7 @@ import Nav from './Nav';
 import PickTime from '../components/PickTime/PickTime';
 import Transform from '../components/Transform/Transform';
 
-const utilList = [
+const utilList: Array<Nav.UtilItem> = [
   {
     name: 'Pick Time',
     icon: '&#xe608;',
@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     const navKey = localStorage.getItem('navKey');
     if (navKey) setActive(navKey);
-  }, [])
+  }, []);
 
   return (
     <Fragment>

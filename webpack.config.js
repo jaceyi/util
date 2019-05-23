@@ -34,6 +34,16 @@ module.exports = {
             'sass-loader'
           ]
         })
+      },
+      {
+        test: /\.(css)$/,
+        include: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader'
+          ]
+        })
       }
     ]
   },

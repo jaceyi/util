@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "dayjs": "^1.8.14",
+    "rc-tooltip": "^3.7.3",
     "react": "^16.8.6",
     "react-alert-confirm": "^1.2.5",
     "react-dom": "^16.8.6"

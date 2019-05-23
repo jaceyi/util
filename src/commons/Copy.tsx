@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { Fragment, useRef } from 'react';
+import { useRef, Fragment } from 'react';
+import Tooltip from 'rc-tooltip';
 
 interface Props {
   children: React.ReactNode;
+  hideText?: boolean;
 }
 
-const Copy: React.FC<Props> = ({ children }) => {
+const Copy: React.FC<Props> = ({ children, hideText }) => {
   const contentRef = useRef();
 
   function handleClick() {
@@ -17,13 +19,27 @@ const Copy: React.FC<Props> = ({ children }) => {
     }
   }
 
+  let style = {};
+  if (hideText) {
+    style = {
+      position: 'fixed',
+      left: -100,
+      top: -100
+    }
+  }
+
   return (
     <Fragment>
-      <span ref={contentRef}>{children}</span>
-      <i
-        onClick={handleClick}
-        title="Copy"
-        className="icon copy_icon">&#xe6e9;</i>
+      <span>
+        <span style={style} ref={contentRef}>{children}</span>
+        <Tooltip placement="top" overlay="Copy">
+          <i
+            onClick={handleClick}
+            title="Copy"
+            className="icon copy_icon"
+          >&#xe6e9;</i>
+        </Tooltip>
+      </span>
     </Fragment>
   )
 };

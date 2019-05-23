@@ -1,21 +1,23 @@
 import * as React from 'react';
 
-interface utilItem {
-	name: string;
-	icon: string;
-	activeIcon: string;
-	component: React.ReactNode
+declare namespace Nav {
+  interface UtilItem {
+    name: string;
+    icon: string;
+    activeIcon: string;
+    component: React.ComponentType
+  }
+
+  interface Props {
+    list: Array<UtilItem>;
+    activeName: string;
+    onChange: {
+      (name: string): void
+    }
+  }
 }
 
-interface Props {
-	list: Array<utilItem>;
-	activeName: string;
-	onChange: {
-		(name: string): void
-	}
-}
-
-const Nav: React.FC<Props> = ({ list, activeName, onChange }) => {
+const Nav: React.FC<Nav.Props> = ({ list, activeName, onChange }) => {
   React.useEffect(() => {
     document.title = activeName;
   }, [activeName]);

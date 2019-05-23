@@ -78,8 +78,11 @@ function PickTime() {
 					</div>
 					<div className="time">
             <Copy>
-							<span>{time.unix()}</span>
+							<span>{time.unix() * 1000}</span>
 						</Copy>
+            <Copy hideText>
+              <span>{time.unix()}</span>
+            </Copy>
 					</div>
 				</div>
 			</div>
