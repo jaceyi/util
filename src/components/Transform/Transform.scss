@@ -1,0 +1,11 @@
+.Transform {
+    width: 1000px;
+    height: 64vh;
+    background-color: rgba($color: #fff, $alpha: 0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

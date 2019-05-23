@@ -10,9 +10,12 @@ interface utilItem {
 interface Props {
 	list: Array<utilItem>;
 	activeName: string;
+	onChange: {
+		(name: string): void
+	}
 }
 
-const Nav: React.FC<Props> = ({ list, activeName }) => {
+const Nav: React.FC<Props> = ({ list, activeName, onChange }) => {
   React.useEffect(() => {
     document.title = activeName;
   }, [activeName]);
@@ -23,7 +26,11 @@ const Nav: React.FC<Props> = ({ list, activeName }) => {
 				list.map(item => {
 					const isActive = activeName === item.name;
 					return (
-						<div key={item.name} className={`item ${isActive ? 'active' : ''}`}>
+						<div 
+							onClick={() => onChange(item.name)}
+							key={item.name}
+						 	className={`item ${isActive ? 'active' : ''}`}
+						>
 							<i className="icon" dangerouslySetInnerHTML={{ __html: isActive ? item.activeIcon : item.icon }}/>
 						</div>
 					)

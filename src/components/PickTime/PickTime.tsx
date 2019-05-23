@@ -20,12 +20,15 @@ function PickTime() {
 
 	useEffect(() => {
 		clearInterval(timer);
-		setInterval(() => {
+		timer = setInterval(() => {
 			setTitle(day())
     }, 1000);
 
 		document.addEventListener('paste', bindPaste);
-		return () => document.removeEventListener('paste', bindPaste);
+		return () => {
+			document.removeEventListener('paste', bindPaste);
+			clearInterval(timer);
+		};
 	}, []);
 
 	function bindPaste(e) {
