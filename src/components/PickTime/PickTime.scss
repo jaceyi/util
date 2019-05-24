@@ -1,15 +1,8 @@
 @import "../../theme";
 
 .PickTime {
-  width: 1000px;
-  height: 64vh;
-  background-color: rgba($color: #fff, $alpha: 0.95);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-  overflow: hidden;
-
   .info {
-    margin-top: 10vh;
+    margin-top: 12vh;
     margin-left: 320px;
     font-size: 36px;
     font-weight: 300;
@@ -19,7 +12,7 @@
 
   .handle {
     display: flex;
-    margin: 15vh auto 0;
+    margin: 10vh auto 0;
     width: 800px;
     justify-content: space-between;
 

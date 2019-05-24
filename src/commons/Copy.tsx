@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { useRef, Fragment } from 'react';
+import { useRef, Fragment, useState } from 'react';
 import Tooltip from 'rc-tooltip';
 
 interface Props {
   children: React.ReactNode;
-  hideText?: boolean;
 }
 
-const Copy: React.FC<Props> = ({ children, hideText }) => {
+const Copy: React.FC<Props> = ({ children }) => {
   const contentRef = useRef();
+  const [text, setText] = useState('Copy');
 
   function handleClick() {
     if (contentRef.current) {
@@ -16,23 +16,19 @@ const Copy: React.FC<Props> = ({ children, hideText }) => {
       sel.selectAllChildren(contentRef.current);
       document.execCommand('Copy');
       sel.removeAllRanges();
-    }
-  }
-
-  let style = {};
-  if (hideText) {
-    style = {
-      position: 'fixed',
-      left: -100,
-      top: -100
+      setText('Copy success！');
     }
   }
 
   return (
     <Fragment>
       <span>
-        <span style={style} ref={contentRef}>{children}</span>
-        <Tooltip placement="top" overlay="Copy">
+        <span ref={contentRef}>{children}</span>
+        <Tooltip
+          placement="top"
+          overlay={text}
+          onVisibleChange={visible => !visible && setText('Copy')}
+        >
           <i
             onClick={handleClick}
             title="Copy"
@@ -41,7 +37,7 @@ const Copy: React.FC<Props> = ({ children, hideText }) => {
         </Tooltip>
       </span>
     </Fragment>
-  )
+  );
 };
 
 export default Copy;
