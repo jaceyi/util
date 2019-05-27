@@ -2,11 +2,13 @@ import * as React from 'react';
 import { useRef, Fragment, useState } from 'react';
 import Tooltip from 'rc-tooltip';
 
-interface Props {
-  children: React.ReactNode;
+declare namespace Copy {
+  interface Props {
+    children: React.ReactNode;
+  }
 }
 
-const Copy: React.FC<Props> = ({ children }) => {
+const Copy: React.FC<Copy.Props> = ({ children }) => {
   const contentRef = useRef();
   const [text, setText] = useState('Copy');
 

@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import * as day from 'dayjs';
 import Copy from '../../commons/Copy';
+import Question from '../../commons/Question';
 
 let timer = null;
 const unixTransforms = {
@@ -36,7 +37,6 @@ function PickTime() {
     if (+paste && day.unix(+paste).get('y')) {
       setUnix(+paste);
     }
-    ;
   }
 
   return (
@@ -44,7 +44,7 @@ function PickTime() {
       <div className="info">{title.format('YYYY-MM-DD HH:mm:ss')}</div>
       <div className="handle">
         <div className="item">
-          <div className="title">时间戳</div>
+          <div className="title">时间戳<Question tip="在页面内可快速粘贴时间戳呦~"/></div>
           <div className="input_box">
             <input
               className="input"
