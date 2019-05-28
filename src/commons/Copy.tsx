@@ -34,7 +34,7 @@ const Copy: React.FC<Copy.Props> = ({ children }) => {
           <i
             onClick={handleClick}
             title="Copy"
-            className="icon copy_icon"
+            className="icon Copy_icon"
           >&#xe6e9;</i>
         </Tooltip>
       </span>

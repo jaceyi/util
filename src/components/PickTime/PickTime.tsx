@@ -6,18 +6,21 @@ import Copy from '../../commons/Copy';
 import Question from '../../commons/Question';
 
 let timer = null;
-const unixTransforms = {
-  10: 'YYYY-MM-DD HH:mm:ss',
-  13: 'YYYY-MM-DD HH:mm:ss:SSS'
-};
 
 function PickTime() {
   const [title, setTitle] = useState(day());
   const [unix, setUnix] = useState(day().unix());
   const [time, setTime] = useState(day());
 
-  const unixLength = String(unix).length;
-  const unixTransform = unixTransforms[unixLength];
+  let unixText: string = '-';
+
+  switch (String(unix).length) {
+    case 10:
+      unixText = day.unix(unix).format('YYYY-MM-DD HH:mm:ss');
+    break;
+    case 13:
+      unixText = day.unix(unix / 1000).format('YYYY-MM-DD HH:mm:ss:SSS');
+  }
 
   useEffect(() => {
     clearInterval(timer);
@@ -44,10 +47,13 @@ function PickTime() {
       <div className="info">{title.format('YYYY-MM-DD HH:mm:ss')}</div>
       <div className="handle">
         <div className="item">
-          <div className="title">时间戳<Question tip="在页面内可快速粘贴时间戳呦~"/></div>
-          <div className="input_box">
+          <div className="title">时间戳<Question tip="在页面内可快速粘贴时间戳 ~"/></div>
+          <div className="Input">
             <input
-              className="input"
+              onPaste={e => {
+                e.stopPropagation();
+                e.nativeEvent.stopImmediatePropagation();
+              }}
               onChange={({target}) => {
                 if (/^\d*$/.test(target.value)) {
                   setUnix(+target.value);
@@ -58,13 +64,13 @@ function PickTime() {
           </div>
           <div className="time">
             <Copy>
-              <span>{unixTransform ? day.unix(unixLength === 13 ? unix / 1000 : unix).format(unixTransform) : '-'}</span>
+              <span>{unixText}</span>
             </Copy>
           </div>
         </div>
         <div className="item">
           <div className="title">选择时间</div>
-          <div className="input_box">
+          <div className="Input">
             <input
               value={time.format('YYYY-MM-DDTHH:mm')}
               onChange={({target}) => {
@@ -74,7 +80,6 @@ function PickTime() {
                   setTime(day());
                 }
               }}
-              className="input"
               type="datetime-local"/>
           </div>
           <div className="time">

@@ -1,6 +1,20 @@
 .Transform {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  .content {
+    width: 300px;
+    margin: 200px auto 0;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #000;
+    font-weight: 300;
+  }
+
+  .result {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #222;
+    font-weight: 300;
+  }
 }
