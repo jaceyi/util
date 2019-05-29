@@ -49,7 +49,7 @@ function Transform() {
   return (
     <div className="Transform">
       <div className="content">
-        <div className="title">输入常量<Question tip="在页面内可快速粘贴时间戳 ~"/></div>
+        <div className="title">输入常量<Question tip="在页面内可快速粘贴常量 ~"/></div>
         <div className="Input">
           <input
             value={value}
