@@ -19,7 +19,7 @@ declare namespace Nav {
 
 const Nav: React.FC<Nav.Props> = ({ list, activeName, onChange }) => {
   React.useEffect(() => {
-    document.title = activeName;
+    document.title = `Util - ${activeName}`;
   }, [activeName]);
 
   return (

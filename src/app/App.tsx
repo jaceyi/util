@@ -1,6 +1,6 @@
 import './App.scss';
 import * as React from 'react';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import Nav from './Nav';
 import PickTime from '../components/PickTime/PickTime';
 import Transform from '../components/Transform/Transform';
@@ -21,15 +21,10 @@ const utilList: Array<Nav.UtilItem> = [
 ];
 
 function App() {
-  const [active, setActive] = React.useState(utilList[0].name);
+  const [active, setActive] = React.useState(localStorage.getItem('navKey') || utilList[0].name);
 
   const activeUtil = utilList.find(item => item.name === active);
   const ActiveComponent = activeUtil.component;
-
-  useEffect(() => {
-    const navKey = localStorage.getItem('navKey');
-    if (navKey) setActive(navKey);
-  }, []);
 
   return (
     <Fragment>

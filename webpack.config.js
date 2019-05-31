@@ -44,6 +44,11 @@ module.exports = {
             'css-loader'
           ]
         })
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        include: /src/,
+        loader: 'url-loader'
       }
     ]
   },
