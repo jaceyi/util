@@ -32,6 +32,13 @@ body {
   background-size: cover;
 }
 
+#root {
+  background-color: rgba($color: #fff, $alpha: 0.5);
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
 .rc-tooltip-inner {
   min-height: 0;
 }

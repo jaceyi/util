@@ -50,6 +50,7 @@ function PickTime() {
           <div className="title">时间戳<Question tip="在页面内可快速粘贴时间戳 ~"/></div>
           <div className="Input">
             <input
+              autoFocus
               onPaste={e => {
                 e.stopPropagation();
                 e.nativeEvent.stopImmediatePropagation();

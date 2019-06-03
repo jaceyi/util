@@ -52,6 +52,7 @@ function Transform() {
         <div className="title">输入常量<Question tip="在页面内可快速粘贴常量 ~"/></div>
         <div className="Input">
           <input
+            autoFocus
             value={value}
             onChange={({ target }) => onChange(target.value)}
             placeholder="请输入常量"
