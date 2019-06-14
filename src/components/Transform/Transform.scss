@@ -1,7 +1,11 @@
 .Transform {
   .content {
     width: 300px;
-    margin: 30vh auto 0;
+    margin: 24vh auto 0;
+    background-color: rgba($color: #fff, $alpha: 0.9);
+    padding: 60px;
+    box-shadow: 0 0 20px rgba($color: #000, $alpha: 0.1);
+    border-radius: 2px;
   }
 
   .title {

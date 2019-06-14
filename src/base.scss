@@ -28,12 +28,11 @@ input {
 
 body {
   font-family: sans-serif;
-  background: #f1f1f1 url("./assets/images/bg.jpeg") no-repeat fixed;
+  background: #f1f1f1 url("./assets/images/bg.jpg") no-repeat fixed;
   background-size: cover;
 }
 
 #root {
-  background-color: rgba($color: #fff, $alpha: 0.5);
   width: 100vw;
   height: 100vh;
   overflow: auto;
