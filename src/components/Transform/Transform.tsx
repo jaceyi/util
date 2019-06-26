@@ -52,7 +52,10 @@ function Transform() {
         <div className="title">输入常量<Question tip="在页面内可快速粘贴常量 ~"/></div>
         <div className="Input">
           <input
-            onPaste={e => e.preventDefault()}
+            onPaste={e => {
+              e.stopPropagation();
+              e.nativeEvent.stopImmediatePropagation();
+            }}
             autoFocus
             value={value}
             onChange={({ target }) => onChange(target.value)}
