@@ -30,9 +30,14 @@ function App() {
     ActiveComponent = activeUtil.component;
   } else {
     const { name, component } = utilList[0];
-    setActive(name);
+    changeNav(name);
     ActiveComponent = component;
-    localStorage.setItem('navKey', name);
+  }
+
+  function changeNav(key) {
+    localStorage.setItem('navKey', key);
+    window.history.pushState({}, '', `/${key}`);
+    setActive(key);
   }
 
   return (
@@ -40,10 +45,7 @@ function App() {
       <Nav
         list={utilList}
         activeName={active}
-        onChange={name => {
-          localStorage.setItem('navKey', name);
-          setActive(name);
-        }}
+        onChange={changeNav}
       />
       <div id="main">
         <ActiveComponent/>

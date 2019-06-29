@@ -28,16 +28,19 @@ const Nav: React.FC<Nav.Props> = ({ list, activeName, onChange }) => {
         list.map(item => {
           const isActive = activeName === item.name;
           return (
-            <div
+            <a
               onClick={() => onChange(item.name)}
               key={item.name}
               className={`item ${isActive ? 'active' : ''}`}
             >
-              <i className="icon" dangerouslySetInnerHTML={{ __html: isActive ? item.activeIcon : item.icon }}/>
-            </div>
+              <i className="icon" dangerouslySetInnerHTML={{ __html: isActive ? item.activeIcon : item.icon }} />
+            </a>
           );
         })
       }
+      <a className="item" target="_blank" href="https://github.com/jaceyi/util">
+        <i className="icon">&#xe64a;</i>
+      </a>
     </div>
   );
 };
