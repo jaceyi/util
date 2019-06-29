@@ -40,6 +40,14 @@ a {
   width: 100vw;
   height: 100vh;
   overflow: auto;
+
+  .background_tip {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    color: #fff;
+    z-index: 9;
+  }
 }
 
 .rc-tooltip-inner {

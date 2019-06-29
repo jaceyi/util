@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import Nav from './Nav';
 import PickTime from '../components/PickTime/PickTime';
 import Transform from '../components/Transform/Transform';
+import Question from '../commons/Question';
 
 const utilList: Array<Nav.UtilItem> = [
   {
@@ -42,6 +43,9 @@ function App() {
 
   return (
     <Fragment>
+      <Question
+        className="background_tip"
+        tip="迪士尼"/>
       <Nav
         list={utilList}
         activeName={active}
