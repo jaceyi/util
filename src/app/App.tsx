@@ -24,7 +24,16 @@ function App() {
   const [active, setActive] = React.useState(localStorage.getItem('navKey') || utilList[0].name);
 
   const activeUtil = utilList.find(item => item.name === active);
-  const ActiveComponent = activeUtil.component;
+  let ActiveComponent = null;
+
+  if (activeUtil) {
+    ActiveComponent = activeUtil.component;
+  } else {
+    const { name, component } = utilList[0];
+    setActive(name);
+    ActiveComponent = component;
+    localStorage.setItem('navKey', name);
+  }
 
   return (
     <Fragment>
