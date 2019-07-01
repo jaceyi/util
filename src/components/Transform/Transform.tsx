@@ -1,6 +1,6 @@
 import './Transform.scss';
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Copy from '../../commons/Copy';
 import Question from '../../commons/Question';
 
@@ -66,7 +66,7 @@ function Transform() {
           result.trim() && (
             <p className="result">
               <Copy>
-                <span>{result}</span>
+                <Fragment>{result}</Fragment>
               </Copy>
             </p>
           )

@@ -24,20 +24,18 @@ const Copy: React.FC<Copy.Props> = ({ children }) => {
 
   return (
     <Fragment>
-      <span>
-        <span ref={contentRef}>{children}</span>
-        <Tooltip
-          placement="top"
-          overlay={text}
-          onVisibleChange={visible => !visible && setText('Copy')}
-        >
-          <i
-            onClick={handleClick}
-            title="Copy"
-            className="icon Copy_icon"
-          >&#xe6e9;</i>
-        </Tooltip>
-      </span>
+      <span ref={contentRef}>{children}</span>
+      <Tooltip
+        placement="top"
+        overlay={text}
+        onVisibleChange={visible => !visible && setText('Copy')}
+      >
+        <i
+          onClick={handleClick}
+          title="Copy"
+          className="icon Copy_icon"
+        >&#xe6e9;</i>
+      </Tooltip>
     </Fragment>
   );
 };
