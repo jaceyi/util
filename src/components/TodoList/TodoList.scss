@@ -1,0 +1,12 @@
+.TodoList {
+  width: 800px;
+  height: 66vh;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 5vh auto 0;
+  background-color: rgba($color: #fff, $alpha: 0.9);
+  box-shadow: 0 0 20px rgba($color: #000, $alpha: 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
