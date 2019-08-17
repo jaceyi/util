@@ -1,4 +1,4 @@
-# Util
+# Utils
 常用工具
 
 #### Pick Time 选择时间
@@ -8,11 +8,11 @@
 > 自动识别十位时间戳与十三位时间戳
 
 #### Transform 常量转换
-<a href="https://util.yijic.com/Transform" target="_blank">链接</a>
+<a href="https://util.yijic.com/Transform">链接</a>
 > 支持将 getUserInfo 和 get user info 的类型字符串转为 GET_USER_INFO
 <br/>
 > 支持将 GET_USER_INFO 类型的字符串转为 getUserInfo
 
 #### TodoList 代办列表
-<a href="https://util.yijic.com/TodoList" target="_blank">链接</a>
+<a href="https://util.yijic.com/TodoList">链接</a>
 > building...
