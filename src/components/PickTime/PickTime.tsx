@@ -2,8 +2,8 @@ import './PickTime.scss';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import * as day from 'dayjs';
-import Copy from '../../commons/Copy';
-import Question from '../../commons/Question';
+import Copy from '@/commons/Copy';
+import Question from '@/commons/Question';
 
 let timer = null;
 
@@ -17,7 +17,7 @@ function PickTime() {
   switch (String(unix).length) {
     case 10:
       unixText = day.unix(unix).format('YYYY-MM-DD HH:mm:ss');
-    break;
+      break;
     case 13:
       unixText = day.unix(unix / 1000).format('YYYY-MM-DD HH:mm:ss:SSS');
   }
@@ -55,7 +55,7 @@ function PickTime() {
                 e.stopPropagation();
                 e.nativeEvent.stopImmediatePropagation();
               }}
-              onChange={({target}) => {
+              onChange={({ target }) => {
                 if (/^\d*$/.test(target.value)) {
                   setUnix(+target.value);
                 }
@@ -74,7 +74,7 @@ function PickTime() {
           <div className="Input">
             <input
               value={time.format('YYYY-MM-DDTHH:mm')}
-              onChange={({target}) => {
+              onChange={({ target }) => {
                 if (target.value) {
                   setTime(day(target.value, 'YYYY-MM-DDTHH:mm'));
                 } else {

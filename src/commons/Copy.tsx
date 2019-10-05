@@ -8,7 +8,7 @@ declare namespace Copy {
   }
 }
 
-const Copy: React.FC<Copy.Props> = ({ children }) => {
+const Copy: React.FC<Copy.Props> = ({ children }: Copy.Props) => {
   const contentRef = useRef();
   const [text, setText] = useState('Copy');
 

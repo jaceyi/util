@@ -1,8 +1,8 @@
 import './Transform.scss';
 import * as React from 'react';
 import { useState, useEffect, Fragment } from 'react';
-import Copy from '../../commons/Copy';
-import Question from '../../commons/Question';
+import Copy from '@/commons/Copy';
+import Question from '@/commons/Question';
 
 function Transform() {
   const [value, setValue] = useState('');

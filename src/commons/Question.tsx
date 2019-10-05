@@ -8,12 +8,12 @@ declare namespace Question {
   }
 }
 
-const Question: React.FC<Question.Props> = ({ tip, className = '' }) => {
+const Question: React.FC<Question.Props> = ({ tip, className = '' }: Question.Props) => {
   return (
     <Tooltip placement="top" overlay={tip}>
       <i className={`icon Question ${className}`}>&#xe691;</i>
     </Tooltip>
-  )
+  );
 };
 
 export default Question;

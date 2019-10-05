@@ -17,7 +17,7 @@ declare namespace Nav {
   }
 }
 
-const Nav: React.FC<Nav.Props> = ({ list, activeName, onChange }) => {
+const Nav: React.FC<Nav.Props> = ({ list, activeName, onChange }: Nav.Props) => {
   React.useEffect(() => {
     document.title = `Util - ${activeName}`;
   }, [activeName]);
@@ -38,7 +38,7 @@ const Nav: React.FC<Nav.Props> = ({ list, activeName, onChange }) => {
           );
         })
       }
-      <a className="item" target="_blank" href="https://github.com/jaceyi/util">
+      <a className="item" href="https://github.com/jaceyi/util">
         <i className="icon">&#xe64a;</i>
       </a>
     </div>

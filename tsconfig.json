@@ -4,9 +4,16 @@
     "target": "es5",
     "lib": ["es2018", "dom"],
     "sourceMap": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "@/*":["src/*"]
+    }
   },
   "exclude": [
     "node_modules"
+  ],
+  "include": [
+    "src"
   ]
 }

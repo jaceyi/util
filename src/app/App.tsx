@@ -2,18 +2,11 @@ import './App.scss';
 import * as React from 'react';
 import { Fragment } from 'react';
 import Nav from './Nav';
-import TodoList from '../components/TodoList/TodoList';
 import PickTime from '../components/PickTime/PickTime';
 import Transform from '../components/Transform/Transform';
 import Question from '../commons/Question';
 
 const utilList: Array<Nav.UtilItem> = [
-  {
-    name: 'TodoList',
-    icon: '&#xe78b;',
-    activeIcon: '&#xe7f6;',
-    component: TodoList
-  },
   {
     name: 'Pick Time',
     icon: '&#xe608;',
