@@ -2,7 +2,7 @@ import * as React from 'react';
 import Tooltip from 'rc-tooltip';
 
 declare namespace Question {
-  interface Props {
+  type Props = {
     tip: string;
     className?: string;
   }

@@ -1,15 +1,17 @@
 import * as React from 'react';
 
 declare namespace Nav {
-  interface UtilItem {
+  type UtilItem = {
     name: string;
     icon: string;
     activeIcon: string;
     component: React.ComponentType
   }
 
-  interface Props {
-    list: Array<UtilItem>;
+  type UtilList = Array<UtilItem>;
+
+  type Props = {
+    list: UtilList;
     activeName: string;
     onChange: {
       (name: string): void

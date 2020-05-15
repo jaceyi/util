@@ -14,7 +14,7 @@
     "dayjs": "^1.8.16",
     "rc-tooltip": "^3.7.3",
     "react": "^16.9.0",
-    "react-alert-confirm": "^1.4.2",
+    "react-alert-confirm": "^2.0.2",
     "react-dom": "^16.9.0",
     "yarn": "^1.19.0"
   },

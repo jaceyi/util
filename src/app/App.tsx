@@ -2,22 +2,15 @@ import './App.scss';
 import * as React from 'react';
 import { Fragment } from 'react';
 import Nav from './Nav';
-import PickTime from '../components/PickTime/PickTime';
-import Transform from '../components/Transform/Transform';
-import Question from '../commons/Question';
+import PickTime from '@/components/PickTime/PickTime';
+import Question from '@/commons/Question';
 
-const utilList: Array<Nav.UtilItem> = [
+const utilList: Nav.UtilList = [
   {
     name: 'Pick Time',
     icon: '&#xe608;',
     activeIcon: '&#xe607;',
     component: PickTime
-  },
-  {
-    name: 'Transform',
-    icon: '&#xe902;',
-    activeIcon: '&#xe903;',
-    component: Transform
   }
 ];
 
@@ -25,7 +18,7 @@ function App() {
   const [active, setActive] = React.useState(localStorage.getItem('navKey') || utilList[0].name);
 
   const activeUtil = utilList.find(item => item.name === active);
-  let ActiveComponent = null;
+  let ActiveComponent;
 
   if (activeUtil) {
     ActiveComponent = activeUtil.component;
@@ -45,7 +38,7 @@ function App() {
     <Fragment>
       <Question
         className="background_tip"
-        tip="迪士尼"/>
+        tip="上海迪士尼城堡"/>
       <Nav
         list={utilList}
         activeName={active}

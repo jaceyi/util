@@ -3,7 +3,7 @@ import { useRef, Fragment, useState } from 'react';
 import Tooltip from 'rc-tooltip';
 
 declare namespace Copy {
-  interface Props {
+  type Props = {
     children: React.ReactNode;
   }
 }
