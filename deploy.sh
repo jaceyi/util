@@ -1,5 +1,5 @@
 yarn build
 
-scp -r ./dist/* root@util.jaceyi.com:/data/util
+scp -r ./dist/* root@util.jaceyi.com:/projects/util
 
 rm -rf ./dist

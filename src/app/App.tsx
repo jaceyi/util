@@ -30,7 +30,6 @@ function App() {
 
   function changeNav(key) {
     localStorage.setItem('navKey', key);
-    window.history.pushState({}, '', `/${key}`);
     setActive(key);
   }
 
