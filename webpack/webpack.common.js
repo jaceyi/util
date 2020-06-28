@@ -16,12 +16,11 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyPlugin([
-      {
-        from: 'static',
-        to: ''
-      }
-    ]),
+    new CopyPlugin({
+      patterns: [{
+        from: './static'
+      }]
+    }),
     new HtmlWebpackPlugin({
       template: './static/index.html'
     }),

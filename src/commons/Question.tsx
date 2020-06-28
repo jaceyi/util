@@ -1,17 +1,18 @@
 import * as React from 'react';
 import Tooltip from 'rc-tooltip';
+import Icon from '@/commons/Icon';
 
 declare namespace Question {
-  type Props = {
+  interface Props {
     tip: string;
     className?: string;
   }
 }
 
-const Question: React.FC<Question.Props> = ({ tip, className = '' }: Question.Props) => {
+const Question = ({ tip, className = '' }: Question.Props) => {
   return (
     <Tooltip placement="top" overlay={tip}>
-      <i className={`icon Question ${className}`}>&#xe691;</i>
+      <Icon className={`question ${className}`} icon="&#xe691;" />
     </Tooltip>
   );
 };

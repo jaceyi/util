@@ -1,45 +1,48 @@
 import * as React from 'react';
 
 declare namespace Nav {
-  type UtilItem = {
+  interface UtilItem {
     name: string;
     icon: string;
     activeIcon: string;
-    component: React.ComponentType
+    component: React.ComponentType;
   }
 
   type UtilList = Array<UtilItem>;
 
-  type Props = {
+  interface Props {
     list: UtilList;
     activeName: string;
     onChange: {
-      (name: string): void
-    }
+      (name: string): void;
+    };
   }
 }
 
-const Nav: React.FC<Nav.Props> = ({ list, activeName, onChange }: Nav.Props) => {
+const Nav = ({ list, activeName, onChange }: Nav.Props) => {
   React.useEffect(() => {
     document.title = `Util - ${activeName}`;
   }, [activeName]);
 
   return (
     <div id="nav">
-      {
-        list.map(item => {
-          const isActive = activeName === item.name;
-          return (
-            <a
-              onClick={() => onChange(item.name)}
-              key={item.name}
-              className={`item ${isActive ? 'active' : ''}`}
-            >
-              <i className="icon" dangerouslySetInnerHTML={{ __html: isActive ? item.activeIcon : item.icon }} />
-            </a>
-          );
-        })
-      }
+      {list.map((item) => {
+        const isActive = activeName === item.name;
+        return (
+          <a
+            onClick={() => onChange(item.name)}
+            key={item.name}
+            className={`item ${isActive ? 'active' : ''}`}
+          >
+            <i
+              className="icon"
+              dangerouslySetInnerHTML={{
+                __html: isActive ? item.activeIcon : item.icon
+              }}
+            />
+          </a>
+        );
+      })}
       <a className="item" href="https://github.com/jaceyi/util">
         <i className="icon">&#xe64a;</i>
       </a>

@@ -1,66 +1,55 @@
-import './PickTime.scss';
+import './index.scss';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as day from 'dayjs';
 import Copy from '@/commons/Copy';
 import Question from '@/commons/Question';
 
-let timer = null;
+const PickTime = () => {
+  let timer = useRef(null);
 
-function PickTime() {
   const [title, setTitle] = useState(day());
   const [unix, setUnix] = useState(day().unix());
   const [time, setTime] = useState(day());
 
-  let unixText: string = '-';
-
-  switch (String(unix).length) {
-    case 10:
-      unixText = day.unix(unix).format('YYYY-MM-DD HH:mm:ss');
-      break;
-    case 13:
-      unixText = day.unix(unix / 1000).format('YYYY-MM-DD HH:mm:ss:SSS');
-  }
+  let unixText = useMemo<string>(() => {
+    switch (String(unix).length) {
+      case 10:
+        return day.unix(unix).format('YYYY-MM-DD HH:mm:ss');
+      case 13:
+        return day.unix(unix / 1000).format('YYYY-MM-DD HH:mm:ss:SSS');
+      default:
+        return '-';
+    }
+  }, [unix]);
 
   useEffect(() => {
-    clearInterval(timer);
-    timer = setInterval(() => {
+    timer.current = setInterval(() => {
       setTitle(day());
     }, 1000);
 
-    document.addEventListener('paste', bindPaste);
-    return () => {
-      document.removeEventListener('paste', bindPaste);
-      clearInterval(timer);
-    };
+    return () => clearInterval(timer.current);
   }, []);
 
-  function bindPaste(e) {
-    const paste = e.clipboardData.getData('text');
-    if (+paste && day.unix(+paste).get('y')) {
-      setUnix(+paste);
-    }
-  }
-
   return (
-    <div className="PickTime">
+    <div className="pick-time">
       <div className="info">{title.format('YYYY-MM-DD HH:mm:ss')}</div>
       <div className="handle">
         <div className="item">
-          <div className="title">时间戳<Question tip="在页面内可快速粘贴时间戳 ~"/></div>
-          <div className="Input">
+          <div className="title">
+            时间戳
+            <Question tip="在页面内可快速粘贴时间戳 ~" />
+          </div>
+          <div className="input">
             <input
-              onPaste={e => {
-                e.stopPropagation();
-                e.nativeEvent.stopImmediatePropagation();
-              }}
               onChange={({ target }) => {
                 if (/^\d*$/.test(target.value)) {
                   setUnix(+target.value);
                 }
               }}
               type="text"
-              value={unix || ''}/>
+              value={unix || ''}
+            />
           </div>
           <div className="time">
             <Copy>
@@ -70,7 +59,7 @@ function PickTime() {
         </div>
         <div className="item">
           <div className="title">选择时间</div>
-          <div className="Input">
+          <div className="input">
             <input
               value={time.format('YYYY-MM-DDTHH:mm')}
               onChange={({ target }) => {
@@ -80,7 +69,8 @@ function PickTime() {
                   setTime(day());
                 }
               }}
-              type="datetime-local"/>
+              type="datetime-local"
+            />
           </div>
           <div className="time">
             <p>
@@ -98,6 +88,6 @@ function PickTime() {
       </div>
     </div>
   );
-}
+};
 
 export default PickTime;
